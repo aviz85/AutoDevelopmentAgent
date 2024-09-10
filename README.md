@@ -1,6 +1,6 @@
 # AutoDevelopmentAgent
 
-AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to autonomously develop software based on user ideas. It creates specifications, plans tests, develops features, runs tests, and improves code iteratively.
+AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to autonomously develop software based on user ideas. It creates specifications, plans tests, develops features, runs tests, and improves code iteratively. The project now features a Streamlit web interface for easier interaction.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to auton
 
 ## Usage
 
-### Web Interface
+### Streamlit Web Interface (Recommended)
 
 1. Run the Streamlit app:
    ```
@@ -41,7 +41,7 @@ AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to auton
 
 4. The generated code will be displayed in the browser and saved to `final_code.py`.
 
-### Command Line Interface
+### Command Line Interface (Alternative)
 
 1. Run the main script:
    ```
