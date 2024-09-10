@@ -6,7 +6,7 @@ from feature_developer import FeatureDeveloper
 
 class AutoDevelopmentAgent:
     def __init__(self, api_key):
-        self.client = anthropic.Client(api_key)
+        self.client = anthropic.Anthropic(api_key=api_key)
         self.test_runner = TestRunner()
         self.feature_developer = FeatureDeveloper(api_key)
 
@@ -43,21 +43,21 @@ class AutoDevelopmentAgent:
 
     def create_specification(self, idea):
         prompt = f"Create a specification including user stories for the following idea: {idea}"
-        response = self.client.messages.create(
+        response = self.client.completions.create(
             model="claude-3-sonnet-20240229",
-            max_tokens=1000,
-            messages=[{"role": "user", "content": prompt}]
+            max_tokens_to_sample=1000,
+            prompt=prompt
         )
-        return response.content
+        return response.completion
 
     def plan_tests(self, specification):
         prompt = f"Plan tests for the user experience based on this specification: {specification}"
-        response = self.client.messages.create(
+        response = self.client.completions.create(
             model="claude-3-sonnet-20240229",
-            max_tokens=1000,
-            messages=[{"role": "user", "content": prompt}]
+            max_tokens_to_sample=1000,
+            prompt=prompt
         )
-        return json.loads(response.content)
+        return json.loads(response.completion)
 
     def develop_features(self, specification):
         return self.feature_developer.develop(specification)
@@ -67,15 +67,11 @@ class AutoDevelopmentAgent:
 
     def improve_code(self, code, test_results):
         prompt = f"Improve this code to pass all tests:\n{code}\nTest results: {test_results}"
-        response = self.client.messages.create(
+        response = self.client.completions.create(
             model="claude-3-sonnet-20240229",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}]
+            max_tokens_to_sample=2000,
+            prompt=prompt
         )
-        return response.content
+        return response.completion
 
-# Usage example
-api_key = "your_anthropic_api_key"
-agent = AutoDevelopmentAgent(api_key)
-final_code = agent.process_user_idea("Create a to-do list application")
-print(final_code)
+# Remove the usage example from here as it's not needed in the class file
