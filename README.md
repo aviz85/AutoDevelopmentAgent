@@ -11,7 +11,7 @@ AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to auton
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/AutoDevelopmentAgent.git
+   git clone https://github.com/aviz85/AutoDevelopmentAgent.git
    cd AutoDevelopmentAgent
    ```
 
