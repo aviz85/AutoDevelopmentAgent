@@ -1,6 +1,6 @@
 # AutoDevelopmentAgent
 
-AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to autonomously develop software based on user ideas. It creates specifications, plans tests, develops features, runs tests, and improves code iteratively. The project now features a Streamlit web interface for easier interaction.
+AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to autonomously develop software based on user ideas. It creates specifications, plans tests, develops features, runs tests, and improves code iteratively. The project features a Streamlit web interface for easier interaction and real-time code generation display.
 
 ## Prerequisites
 
@@ -37,9 +37,19 @@ AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to auton
 
 2. Open your web browser and go to the URL displayed in the terminal (usually `http://localhost:8501`).
 
-3. Enter your idea for a software application in the text input field and click "Generate Code".
+3. (Optional) Set a token limit for the entire project. Leave it at 0 for no limit.
 
-4. The generated code will be displayed in the browser and saved to `final_code.py`.
+4. Enter your idea for a software application in the text input field and click "Generate Code".
+
+5. Watch as the code is generated in real-time, with updates at each stage of the process:
+   - Specification creation
+   - Test planning
+   - Feature development
+   - Test running and code improvement
+
+6. The final generated code will be displayed in the browser and saved to `final_code.py`.
+
+7. You can view the total number of tokens used throughout the process.
 
 ### Command Line Interface (Alternative)
 
@@ -65,15 +75,27 @@ AutoDevelopmentAgent is a Python-based tool that uses the Anthropic API to auton
 - `.gitignore`: Specifies files that Git should ignore.
 - `requirements.txt`: Lists all Python dependencies for the project.
 
+## Features
+
+- Real-time code generation display
+- Token usage tracking and optional token limit setting
+- Specification creation
+- Automated test planning
+- Feature development
+- Test execution and code improvement
+- Markdown removal for clean code output
+
 ## Customization
 
-You can modify the `max_iterations` variable in `agent.py` to change the maximum number of improvement iterations the agent will perform.
+- You can modify the `max_iterations` variable in `agent.py` to change the maximum number of improvement iterations the agent will perform.
+- Adjust the token limit in the Streamlit interface to control the total tokens used in the project.
 
 ## Limitations
 
 - The quality of the generated code depends on the capabilities of the Anthropic API.
 - Complex ideas may require manual intervention or refinement.
 - The agent may not always produce perfect or complete code, especially for large or complex projects.
+- Token limits may restrict the complexity of the generated code.
 
 ## Contributing
 

@@ -1,16 +1,9 @@
-import os
-from dotenv import load_dotenv
 from agent import AutoDevelopmentAgent
 
 def main():
     print("Note: A new UI is available! Run 'streamlit run app.py' to use the web interface.")
     
-    load_dotenv()
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise ValueError("ANTHROPIC_API_KEY is not set in the .env file")
-
-    agent = AutoDevelopmentAgent(api_key)
+    agent = AutoDevelopmentAgent()
     idea = input("Enter your idea for a software application: ")
     final_code = agent.process_user_idea(idea)
     
